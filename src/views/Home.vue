@@ -1,13 +1,22 @@
 <template>
-  <app-navigation></app-navigation>
+  <div>
+    <home-hero></home-hero>
+    <home-details></home-details>
+    <home-plans></home-plans>
+  </div>
 </template>
 
 <script>
-import AppNavigation from "@/components/AppNavigation.vue";
+import HomeHero from "@/components/HomeHero.vue";
+import HomeDetails from "@/components/HomeDetails.vue";
+import HomePlans from "@/components/HomePlans.vue";
 
 export default {
+  name: "home",
   components: {
-    AppNavigation
+    HomeHero,
+    HomeDetails,
+    HomePlans
   }
 };
 </script>
