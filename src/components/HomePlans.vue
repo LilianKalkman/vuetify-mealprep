@@ -85,7 +85,7 @@ export default {
 
 <style>
 .homeplans-container {
-  background-color: cadetblue;
+  background-color: inherit;
   width: 100%;
   height: 100%;
 }
