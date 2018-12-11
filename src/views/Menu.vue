@@ -1,21 +1,19 @@
 <template>
-  <v-container>
-    <v-layout>
-      <h1 class="mb-4">Menu Page</h1>
-    </v-layout>
-    <v-layout>
-      <HomePlans/>
-    </v-layout>
-  </v-container>
+  <div>
+    <HomePlans/>
+    <MealRecipes/>
+  </div>
 </template>
 
 <script>
 import HomePlans from "@/components/HomePlans.vue";
+import MealRecipes from "@/components/MealRecipes.vue";
 
 export default {
   name: "Menu",
   components: {
-    HomePlans
+    HomePlans,
+    MealRecipes
   }
 };
 </script>
