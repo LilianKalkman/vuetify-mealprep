@@ -21,10 +21,13 @@
             </v-img>
             <v-card-title primary-title>
               <div>
-                <h3 class="headline mb-0">Keto</h3>
+                <h3 class="headline mb-0">{{ diets[n - 1] }}</h3>
                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mauris felis, varius rutrum massa a, dignissim ornare dui. Cras eget velit eu dui tristique lobortis sit amet vel tellus.</div>
               </div>
             </v-card-title>
+            <v-card-actions v-if="['menu'].includes($route.name)">
+              <v-btn outline block color="black" @click="getRecipes(`${diets[n - 1]}`)">Select Diet</v-btn>
+            </v-card-actions>
           </v-card>
         </v-flex>
       </template>
@@ -33,8 +36,29 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-  name: "HomePlans"
+  name: "HomePlans",
+  data() {
+    return {
+      diets: ["Vegan", "Paleo", "No-gluten"],
+      recipes: []
+    };
+  },
+  methods: {
+    async getRecipes(diet) {
+      const query = diet.toLowerCase();
+      console.log(query);
+      const URL = `https://api.edamam.com/recipes/${query}`;
+      try {
+        const result = await axios.get(URL);
+        console.log(result);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
 };
 </script>
 

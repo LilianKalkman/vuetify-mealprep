@@ -4,7 +4,9 @@
       <v-list>
         <template v-for="(item, index) in items">
           <v-list-tile :key="index">
-            <v-list-content>{{ item.title }}</v-list-content>
+            <v-list-content>
+              <router-link :to="`/${item.title.toLowerCase()}`">{{ item.title }}</router-link>
+            </v-list-content>
           </v-list-tile>
           <v-divider :key="`divider-${index}`"></v-divider>
         </template>
