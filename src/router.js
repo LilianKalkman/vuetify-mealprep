@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import HomePlans from "@/components/HomePlans.vue";
+// import MealRecipes from "@/components/MealRecipes.vue";
 
 Vue.use(Router);
 
@@ -34,5 +35,10 @@ export default new Router({
       name: "join",
       component: () => import("./views/Join.vue")
     }
+    // {
+    //   path: "/recipes",
+    //   name: "recipes",
+    //   component: MealRecipes
+    // }
   ]
 });
