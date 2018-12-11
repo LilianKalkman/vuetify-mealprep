@@ -48,12 +48,25 @@ export default {
   },
   methods: {
     async getRecipes(diet) {
+      const API_KEY = "3a0df9a5327dbdf4b24ed626128a30b7";
+      const APPLICATION_ID = "660a9bed";
       const query = diet.toLowerCase();
+      const proxy = "https://cors-anywhere.herokuapp.com/";
       console.log(query);
-      const URL = `https://api.edamam.com/recipes/${query}`;
+
+      const URL = `${proxy}https://api.edamam.com/search`;
       try {
-        const result = await axios.get(URL);
-        console.log(result);
+        const result = await axios.get(URL, {
+          params: {
+            q: query,
+            app_id: APPLICATION_ID,
+            app_key: API_KEY,
+            from: 0,
+            to: 9
+          }
+        });
+        this.recipes = result.data.hits;
+        console.log(this.recipes);
       } catch (err) {
         console.log(err);
       }
